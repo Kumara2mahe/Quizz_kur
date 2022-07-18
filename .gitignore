@@ -1,0 +1,5 @@
+# Ignoring all the temporary files in the 'temp' folder
+temp/
+
+# Ignoring all the database files
+*.db
