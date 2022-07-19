@@ -1,0 +1,287 @@
+{
+    "topic1": {
+        "name": "General Knowledge",
+        "id": "01",
+        "type": "quiz",
+        "quiz1": {
+            "id": "01",
+            "question": "Entomology is the science that studies",
+            "option1": "Behavior of human beings",
+            "option2": "Insects",
+            "option3": "history of technical and scientific terms",
+            "option4": "The formation of rocks",
+            "correct": "Insects"
+        },
+        "quiz2": {
+            "id": "02",
+            "question": "Eritrea, which became the 182nd member of the UN in 1993, is in the continent of",
+            "option1": "Asia",
+            "option2": "Africa",
+            "option3": "Europe",
+            "option4": "Australia",
+            "correct": "Africa"
+        },
+        "quiz3": {
+            "id": "03",
+            "question": "Garampani sanctuary is located at",
+            "option1": "Junagarh, Gujarat",
+            "option2": "Diphu, Assam",
+            "option3": "Kohima, Nagaland",
+            "option4": "Gangtok, Sikkim",
+            "correct": "Diphu, Assam"
+        },
+        "quiz4": {
+            "id": "04",
+            "question": "For which of the following disciplines is Nobel Prize awarded?",
+            "option1": "Physics and Chemistry",
+            "option2": "Physiology or Medicine",
+            "option3": "Literature, Peace and Economics",
+            "option4": "All of the above",
+            "correct": "All of the above"
+        },
+        "quiz5": {
+            "id": "05",
+            "question": "Hitler party which came into power in 1933 is known as",
+            "option1": "Labour Party",
+            "option2": "Nazi Party",
+            "option3": "Ku-Klux-Klan",
+            "option4": "Democratic Party",
+            "correct": "Nazi Party"
+        },
+        "quiz6": {
+            "id": "06",
+            "question": "FFC stands for",
+            "option1": "Foreign Finance Corporation",
+            "option2": "Film Finance Corporation",
+            "option3": "Federation of Football Council",
+            "option4": "None of the above",
+            "correct": "Film Finance Corporation"
+        },
+        "quiz7": {
+            "id": "07",
+            "question": "Fastest shorthand writer was",
+            "option1": "Dr. G. D. Bist",
+            "option2": "J.R.D. Tata",
+            "option3": "J.M. Tagore",
+            "option4": "Khudada Khan",
+            "correct": "Dr. G. D. Bist"
+        },
+        "quiz8": {
+            "id": "08",
+            "question": "Epsom (England) is the place associated with",
+            "option1": "Horse racing",
+            "option2": "Polo",
+            "option3": "Shooting",
+            "option4": "Snooker",
+            "correct": "Horse racing"
+        },
+        "quiz9": {
+            "id": "09",
+            "question": "First human heart transplant operation conducted by Dr. Christiaan Barnard on Louis Washkansky, was conducted in",
+            "option1": "1967",
+            "option2": "1968",
+            "option3": "1958",
+            "option4": "1922",
+            "correct": "1967"
+        },
+        "quiz10": {
+            "id": "10",
+            "question": "Galileo was an Italian astronomer who developed",
+            "option1": "telescope",
+            "option2": "microscope",
+            "option3": "bioscope",
+            "option4": "All of the above",
+            "correct": "telescope"
+        }
+    },
+    "topic2": {
+        "name": "Technology",
+        "id": "02",
+        "type": "quiz",
+        "quiz1": {
+            "id": "01",
+            "question": "What's a web browser?",
+            "option1": "Kind of spider",
+            "option2": "Search Engine",
+            "option3": "Software to access Web",
+            "option4": "World Wide Web",
+            "correct": "Software to access Web"
+        },
+        "quiz2": {
+            "id": "02",
+            "question": "What is part of a database that holds only one type of information?",
+            "option1": "Report",
+            "option2": "Field",
+            "option3": "Record",
+            "option4": "File",
+            "correct": "Field"
+        },
+        "quiz3": {
+            "id": "03",
+            "question": "'OS' computer abbreviation usually means ?",
+            "option1": "Operating Server",
+            "option2": "Open Software",
+            "option3": "Operating System",
+            "option4": "Optical Sensor",
+            "correct": "Operating System"
+        },
+        "quiz4": {
+            "id": "04",
+            "question": "http://www.google.com - is an example of what?",
+            "option1": "A URL",
+            "option2": "A URN",
+            "option3": "A Website",
+            "option4": "A URI",
+            "correct": "A URL"
+        },
+        "quiz5": {
+            "id": "05",
+            "question": "'.MOV' extension refers usually to what kind of file?",
+            "option1": "Image file",
+            "option2": "Animation file",
+            "option3": "Audio file",
+            "option4": "MS Office document",
+            "correct": "Animation file"
+        },
+        "quiz6": {
+            "id": "06",
+            "question": "How many bits is a byte?",
+            "option1": "4 bits",
+            "option2": "8 bits",
+            "option3": "16 bits",
+            "option4": "32 bits",
+            "correct": "8 bits"
+        },
+        "quiz7": {
+            "id": "07",
+            "question": "The speed of your net access is defined in terms of",
+            "option1": "RAM",
+            "option2": "MHz",
+            "option3": "Kbps",
+            "option4": "Megabytes",
+            "correct": "Kbps"
+        },
+        "quiz8": {
+            "id": "08",
+            "question": "Computers calculate numbers in what mode?",
+            "option1": "Decimal",
+            "option2": "Octal",
+            "option3": "Binary",
+            "option4": "Hexa",
+            "correct": "Binary"
+        },
+        "quiz9": {
+            "id": "09",
+            "question": "The 'desktop' of a computer refers to the",
+            "option1": "visible screen",
+            "option2": "area around monitor",
+            "option3": "home screen of windows",
+            "option4": "inside a folder",
+            "correct": "visible screen"
+        },
+        "quiz10": {
+            "id": "10",
+            "question": "'.WAV' extension refers usually to what kind of file?",
+            "option1": "Audio file",
+            "option2": "Animation file",
+            "option3": "Movie file",
+            "option4": "Image file",
+            "correct": "Audio file"
+        }
+    },
+    "topic3": {
+        "name": "Science",
+        "id": "03",
+        "type": "quiz",
+        "quiz1": {
+            "id": "01",
+            "question": "Brass gets discoloured in air because of the presence of which of the following gases in air?",
+            "option1": "Oxygen",
+            "option2": "Hydrogen sulphide",
+            "option3": "Carbon dioxide",
+            "option4": "Nitrogen",
+            "correct": "Hydrogen sulphide"
+        },
+        "quiz2": {
+            "id": "02",
+            "question": "Which of the following is a non metal that remains liquid at room temperature?",
+            "option1": "Phosphorous",
+            "option2": "Bromine",
+            "option3": "Chlorine",
+            "option4": "Helium",
+            "correct": "Bromine"
+        },
+        "quiz3": {
+            "id": "03",
+            "question": "Chlorophyll is a naturally occurring chelate compound in which central metal is",
+            "option1": "copper",
+            "option2": "magnesium",
+            "option3": "iron",
+            "option4": "calcium",
+            "correct": "magnesium"
+        },
+        "quiz4": {
+            "id": "04",
+            "question": "Which of the following is used in pencils?",
+            "option1": "Graphite",
+            "option2": "Silicon",
+            "option3": "Charcoal",
+            "option4": "Phosphorous",
+            "correct": "Graphite"
+        },
+        "quiz5": {
+            "id": "05",
+            "question": "Which of the following metals forms an amalgam with other metals?",
+            "option1": "Tin",
+            "option2": "Mercury",
+            "option3": "Lead",
+            "option4": "Zinc",
+            "correct": "Mercury"
+        },
+        "quiz6": {
+            "id": "06",
+            "question": "Chemical formula for water is",
+            "option1": "NaAlO2",
+            "option2": "H2O",
+            "option3": "Al2O3",
+            "option4": "CaSiO3",
+            "correct": "H2O"
+        },
+        "quiz7": {
+            "id": "07",
+            "question": "The gas usually filled in the electric bulb is",
+            "option1": "nitrogen",
+            "option2": "hydrogen",
+            "option3": "carbon dioxide",
+            "option4": "oxygen",
+            "correct": "nitrogen"
+        },
+        "quiz8": {
+            "id": "08",
+            "question": "Washing soda is the common name for",
+            "option1": "Sodium carbonate",
+            "option2": "Calcium bicarbonate",
+            "option3": "Sodium bicarbonate",
+            "option4": "Calcium carbonate",
+            "correct": "Sodium carbonate"
+        },
+        "quiz9": {
+            "id": "09",
+            "question": "Quartz crystals normally used in quartz clocks etc. is chemically",
+            "option1": "silicon dioxide",
+            "option2": "germanium oxide",
+            "option3": "carbon dioxide",
+            "option4": "sodium silicate",
+            "correct": "silicon dioxide"
+        },
+        "quiz10": {
+            "id": "10",
+            "question": "Which of the gas is not known as green house gas?",
+            "option1": "Methane",
+            "option2": "Nitrous oxide",
+            "option3": "Carbon dioxide",
+            "option4": "Hydrogen",
+            "correct": "Hydrogen"
+        }
+    }
+}

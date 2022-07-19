@@ -8,6 +8,9 @@ from tkinter.ttk import *
 # importing sqlite3 for create and work with databases
 import sqlite3
 
+# importing a setup function to setting up this application, with more dynamic functionality
+from setup import settingUp
+
 
 root = Tk()
 
@@ -24,6 +27,9 @@ root.resizable(0, 0)
 p1 = PhotoImage(file="./Images/icon.png")
 # Setting that image as an icon to the window
 root.iconphoto(False, p1)
+
+# Defining a variable to track Start-Button click
+err_attempt = 0
 
 # Defining initial values for Score
 point = 0
@@ -7292,21 +7298,69 @@ def main():
         # Disabling the Start-Button after clicked, for preventing the function to be called twice
         start_button.configure(state=DISABLED)
 
-        # Destroying the Home-Screen's Start-Button
-        start_button.after(500, start_button.destroy)
+        # Creating Labels for displaying the setup error-message if occurs
+        error_msg = Label(root, font=("Dodge", 10),
+                          foreground="#B0CECE", background="#22333B")
+        global err_attempt
 
-        # Changing the color of the Home-Screen App-Name and destroying the label in 1.6s
-        root.after(200, lambda: label0.configure(foreground="#832161"))
-        root.after(400, lambda: label0.configure(foreground="#DA4167"))
-        root.after(600, lambda: label0.configure(foreground="#177E89"))
-        root.after(800, lambda: label0.configure(foreground="#DB3A34"))
-        root.after(1000, lambda: label0.configure(foreground="#F5F749"))
-        root.after(1200, lambda: label0.configure(foreground="#41EAD4"))
-        root.after(1400, lambda: label0.configure(foreground="#F0EFF4"))
-        root.after(1600, label0.destroy)
+        # Calling the function to setting up Q & A for the app inside a database for the firsttime
+        set_up = settingUp()
 
-        # Calling the function to create the User-Select panel
-        root.after(1800, lambda: userSelect())
+        if (set_up == "initialized"):
+
+            # Destroying the Home-Screen's Start-Button
+            start_button.after(500, start_button.destroy)
+            error_msg.after(100, error_msg.destroy)
+
+            # Resetting Start-Button clicks
+            err_attempt = 0
+
+            # Changing the color of the Home-Screen App-Name and destroying the label in 1.6s
+            root.after(200, lambda: label0.configure(foreground="#832161"))
+            root.after(400, lambda: label0.configure(foreground="#DA4167"))
+            root.after(600, lambda: label0.configure(foreground="#177E89"))
+            root.after(800, lambda: label0.configure(foreground="#DB3A34"))
+            root.after(1000, lambda: label0.configure(foreground="#F5F749"))
+            root.after(1200, lambda: label0.configure(foreground="#41EAD4"))
+            root.after(1400, lambda: label0.configure(foreground="#F0EFF4"))
+            root.after(1600, label0.destroy)
+
+            # Calling the function to create the User-Select panel
+            root.after(1800, lambda: userSelect())
+
+        else:
+
+            # Tracking the number of Start-Button clicks only when showing error-message
+            err_attempt += 1
+
+            if err_attempt < 4:
+
+                # Showing the error message to the user if the Start-Button click is less than 4
+                error_msg.configure(text=set_up)
+                error_msg.place(relx=0.7, rely=0.9, anchor=CENTER)
+                error_msg.after(2000, error_msg.destroy)
+
+                # Enabling the Start-Button again
+                root.after(2100, lambda: start_button.configure(state=NORMAL))
+
+            else:
+                # Showing the error message to the user if the Start-Button is clicked more than 3
+                error_msg.configure(
+                    text="Too many attempts, closing app in 5s")
+                error_msg.place(relx=0.7, rely=0.9, anchor=CENTER)
+
+                root.after(1000, lambda: error_msg.configure(
+                    text="Too many attemps, closing app in 4s"))
+                root.after(2000, lambda: error_msg.configure(
+                    text="Too many attemps, closing app in 3s"))
+                root.after(3000, lambda: error_msg.configure(
+                    text="Too many attemps, closing app in 2s"))
+                root.after(4000, lambda: error_msg.configure(
+                    text="Too many attemps, closing app in 1s"))
+                error_msg.after(4800, error_msg.destroy)
+
+                # Quitting the application
+                root.after(5000, lambda: root.destroy())
 
     # >>
 
