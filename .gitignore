@@ -1,5 +1,6 @@
-# Ignoring all the temporary files in the 'temp' folder
+# Ignoring all the temporary files in the 'temp' folder & cache files
 temp/
+__pycache__
 
 # Ignoring all the database files
 *.db
