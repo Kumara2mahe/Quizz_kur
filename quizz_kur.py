@@ -7100,7 +7100,7 @@ def main():
                         root.after(500, back3_button.destroy)
 
                         # Calling the function to create Topic-1's (Question #1)
-                        root.after(800, lambda: ques10())
+                        root.after(800, lambda: ques1())
 
                     # >>
 
