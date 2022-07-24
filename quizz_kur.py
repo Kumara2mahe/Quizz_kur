@@ -34,7 +34,11 @@ err_attempt = 0
 # Defining initial values for Score
 point = 0
 
+# Assigning a variable to check a function is called or not
+tryInitiatorCall = False
 
+
+# Function which creates the Home-Screen
 def main():
 
     # Function which creates the User-Select panel with buttons for both admins and guests
@@ -55,7 +59,7 @@ def main():
             # Calling the function to show the Home-Screen
             root.after(800, lambda: main())
 
-        # >>
+        ##
 
         # Function which is operated by the User-Select's Admin-Button
         def admins():
@@ -135,12 +139,12 @@ def main():
 
         # -------------------------------------------------------------------------------------------- Admin (404) Panel -StyleEnds----
 
-        # >>
+        ##
 
         # Function which is operated by the User-Select's Guest-Button
         def users():
 
-            # Function which creates the Topic-Select panel with multiple Topic-Buttons for each kind of quiz topic
+            # Function which creates the Topic-Selection panel with multiple Topic-Buttons for each kind of quiz topic
             def topicSelectionPanel():
 
                 # Function which is operated by the Topic-Select Panel's Back-Button
@@ -173,6 +177,7 @@ def main():
 
                         # Destroying all the widgets created and visible in the ScoreCard Panel
                         root.after(400, lambda: score_button.destroy())
+                        root.after(400, lambda: try_button.destroy())
                         root.after(400, lambda: label3.destroy())
                         root.after(500, lambda: scoreboard.destroy())
                         root.after(500, lambda: label31.destroy())
@@ -201,11 +206,11 @@ def main():
                                 score_button.configure(state=DISABLED)
 
                                 # Destroying all the widgets created in the leaderboard
-                                leaderboard_label1.destroy()
-                                leaderboard_label1_n.destroy()
-                                leaderboard_label1_s.destroy()
+                                leaderboard_subtitle.destroy()
+                                leaderboard_name_label.destroy()
+                                leaderboard_score_label.destroy()
                                 leaderboard_text.destroy()
-                                leaderboard_label.destroy()
+                                leaderboard_title.destroy()
 
                                 # Changing back the Back-Button text to Leaderboard-Button and also changing the function assigned to it
                                 root.after(100, lambda: score_button.configure(
@@ -213,7 +218,15 @@ def main():
 
                                 # Enabling the ScoreCard Panel's Exit-Button
                                 exit_button.configure(state=NORMAL)
+
+                                # Showing the total-score and TryMore-Button
                                 scoreLabel.configure(foreground="#F8FFE5")
+
+                                # Showing TryMore-Button if exists
+                                try:
+                                    try_button.lift()
+                                except:
+                                    pass
 
                             # ------------------------------------- Leaderboard -StyleStarts----------------------------------------------------
 
@@ -225,53 +238,59 @@ def main():
                             exit_button.configure(state=DISABLED)
                             scoreLabel.configure(foreground="#1E0905")
 
+                            # Hiding TryMore-Button if exists
+                            try:
+                                try_button.lower()
+                            except:
+                                pass
+
                             # Styling the leaderboard Title label
-                            leaderboard_label_style = Style()
-                            leaderboard_label_style.theme_use("default")
-                            leaderboard_label_style.configure("L.TLabel", font=("Dodge", 15, "bold", "italic"),
+                            leaderboard_title_style = Style()
+                            leaderboard_title_style.theme_use("default")
+                            leaderboard_title_style.configure("L.TLabel", font=("Dodge", 15, "bold", "italic"),
                                                               foreground="#F8FFE5", background="#1E0905", borderwidth=2, width=30, height=10, focuscolor="none")
 
                             # Creating a label to show the leaderboard Title
-                            leaderboard_label = Label(
+                            leaderboard_title = Label(
                                 root, text="LeaderBoard", font=("Dodge", 20, "bold", "italic"),
                                 foreground="#F5F749", background="#1E0905")
-                            leaderboard_label.place(
+                            leaderboard_title.place(
                                 relx=0.55, rely=0.1, anchor=CENTER)
 
                             # Styling the leaderboard sub-Title labels
-                            leaderboard_label1_n_style = Style()
-                            leaderboard_label1_n_style.theme_use("default")
-                            leaderboard_label1_n_style.configure("L.TLabel", font=("Dodge", 15, "bold", "italic"),
+                            leaderboard_subtitle_style = Style()
+                            leaderboard_subtitle_style.theme_use("default")
+                            leaderboard_subtitle_style.configure("L.TLabel", font=("Dodge", 15, "bold", "italic"),
                                                                  foreground="#BF09D5", background="#1E0905", borderwidth=2, width=30, height=10, focuscolor="none")
 
                             # Creating a label to show the leaderboard sub-Titles
-                            leaderboard_label1 = Label(
+                            leaderboard_subtitle = Label(
                                 root, text="Name                               Score\r\n", style="L.TLabel")
-                            leaderboard_label1.place(
+                            leaderboard_subtitle.place(
                                 relx=0.55, rely=0.3, anchor=CENTER)
 
                             # Styling the GuestNames displayed in the leaderboard
-                            leaderboard_label1_n_style = Style()
-                            leaderboard_label1_n_style.theme_use("default")
-                            leaderboard_label1_n_style.configure("G.TLabel", font=("Dodge", 13, "bold", "italic"),
-                                                                 foreground="#F8FFE5", background="#1E0905", borderwidth=2, width=30, height=10, focuscolor="none")
+                            leaderboard_name_label_style = Style()
+                            leaderboard_name_label_style.theme_use("default")
+                            leaderboard_name_label_style.configure("G.TLabel", font=("Dodge", 13, "bold", "italic"),
+                                                                   foreground="#F8FFE5", background="#1E0905", borderwidth=2, width=30, height=10, focuscolor="none")
 
                             # Creating new label to show the GuestNames
-                            leaderboard_label1_n = Label(
+                            leaderboard_name_label = Label(
                                 root, text=show_name, style="G.TLabel")
-                            leaderboard_label1_n.place(
+                            leaderboard_name_label.place(
                                 relx=0.25, rely=0.35, anchor=NW)
 
                             # Styling the GuestScores displayed in the leaderboard
-                            leaderboard_label1_s_style = Style()
-                            leaderboard_label1_s_style.theme_use("default")
-                            leaderboard_label1_s_style.configure("P.TLabel", font=("Dodge", 13, "bold", "italic"),
-                                                                 foreground="#F8FFE5", background="#1E0905", borderwidth=2, width=10, height=30, focuscolor="none")
+                            leaderboard_score_label_style = Style()
+                            leaderboard_score_label_style.theme_use("default")
+                            leaderboard_score_label_style.configure("P.TLabel", font=("Dodge", 13, "bold", "italic"),
+                                                                    foreground="#F8FFE5", background="#1E0905", borderwidth=2, width=10, height=30, focuscolor="none")
 
                             # Creating new label to show the GuestScores
-                            leaderboard_label1_s = Label(
+                            leaderboard_score_label = Label(
                                 root, text=show_score, style="P.TLabel")
-                            leaderboard_label1_s.place(
+                            leaderboard_score_label.place(
                                 relx=0.88, rely=0.35, anchor=NE)
 
                             # Styling the message about the leaderboard
@@ -334,6 +353,7 @@ def main():
                     # ------------------------------------- ScoreCard Panel Button -StyleStarts----------------------------------------------------
 
                     # Creating a Exit-Button to quit the App
+                    global exit_button
                     exit_button = Button(root, text="EXIT",
                                          style="E.TButton", command=lambda: exitingScoreCard())
                     exit_button.place(relx=0.15, rely=0.9, anchor=CENTER)
@@ -346,6 +366,8 @@ def main():
                     # Mouse Hovering style
                     score_button_style.map("L.TButton", foreground=[
                         ("active", "!disabled", "#F0EFF4")], background=[("active", "#DB12AF")])
+
+                    global score_button
                     score_button = Button(
                         root, text="LeaderBoard", style="L.TButton", command=lambda: leaderboard())
                     score_button.place(relx=0.22, rely=0.05, anchor=NE)
@@ -392,8 +414,8 @@ def main():
 
                     # Creating a 'leaderboard' table if not exists to store the Guestname and score
                     co.execute("""CREATE TABLE IF NOT EXISTS leaderboard (
-                                playername text,
-                                score integer
+                                playername TEXT,
+                                score INTEGER
                                 )""")
 
                     # Updating the leaderboard with the Guest's name and total score
@@ -411,8 +433,117 @@ def main():
 
                 # >>
 
+                # Function which creates a Try-More button in the ScoreCard Panel
+                def createTryMore(topicName, topicTable, quizNumber):
+
+                    # Function which creates the Rules Panel for the second time with a Quiz Initiating Timer
+                    def quizInitiator(topicName, topicTable, quizNumber):
+
+                        global tryInitiatorCall
+
+                        # Checking if the function is called twice
+                        if (tryInitiatorCall):
+
+                            # Creating a label to show the screen Title
+                            label2 = Label(root, text="Rules", font=("Dodge", 30),
+                                           foreground="#D1E3DD", background="#1E0905")
+                            label2.place(relx=0.5, rely=0.12, anchor=CENTER)
+
+                            # Displaying the rules for the Quiz
+                            rules = Message(root, text="    1. Each question has a time limit of 15 seconds.\r\n    2. Once the option is selected it can't be changed.\r\n    3. Final Score is displayed at the end.\r\n    4. The following questions are based on '%s'." % topicName, font=("Dodge", 12),
+                                            foreground="#D1E3DD", background="#1E0905", width=450)
+                            rules.place(relx=0.5, rely=0.42, anchor=CENTER)
+
+                            # Creating and Displaying the Quiz Initiating Timer
+                            initTimer = Label(text="Quiz starts in 5 seconds . ... .", font=("Dodge", 12),
+                                              foreground="#F6F67C", background="#1E0905")
+                            root.after(1000, lambda: initTimer.place(
+                                relx=0.68, rely=0.9, anchor=CENTER))
+
+                            # Periodically changing the Time-remaining after 1s
+                            root.after(1950, lambda: initTimer.configure(
+                                text=""))
+                            root.after(2000, lambda: initTimer.configure(
+                                text="Quiz starts in 4 seconds .  ...."))
+                            root.after(2950, lambda: initTimer.configure(
+                                text=""))
+                            root.after(3000, lambda: initTimer.configure(
+                                text="Quiz starts in 3 seconds . ... ."))
+                            root.after(3950, lambda: initTimer.configure(
+                                text=""))
+                            root.after(4000, lambda: initTimer.configure(
+                                text="Quiz starts in 2 seconds .... ."))
+                            root.after(4950, lambda: initTimer.configure(
+                                text=""))
+                            root.after(5000, lambda: initTimer.configure(
+                                text="Quiz starts in 1 second . ... ."))
+                            root.after(5950, lambda: initTimer.configure(
+                                text=""))
+
+                            # Destroying all the widgets created in the Rules Panel for the second time
+                            root.after(6000, lambda: label2.destroy())
+                            root.after(6000, lambda: rules.destroy())
+                            root.after(6000, lambda: initTimer.destroy())
+
+                            # Re-assigning the variable to default value
+                            tryInitiatorCall = False
+
+                            # Increasing the question number
+                            quizNumber += 1
+
+                            # Calling the function to create more Quiz
+                            root.after(6200, lambda: quizQuestion(
+                                topicName, topicTable, quizNumber))
+
+                        else:
+
+                            # Re-assigning the variable to confirm function called
+                            tryInitiatorCall = True
+
+                            # Resizing and Re-aligning the GuestName back to the NorthEast corner
+                            root.after(800, lambda: label31.configure(
+                                font=("Dodge", 15, "bold")))
+                            root.after(800, lambda: label31.place(
+                                relx=0.995, rely=0.094, anchor=E))
+
+                            # Destroying all the widgets created in the ScoreCard Panel
+                            root.after(400, lambda: score_button.destroy())
+                            root.after(600, lambda: scoreboard.destroy())
+                            root.after(600, lambda: scoreLabel.destroy())
+                            root.after(400, lambda: exit_button.destroy())
+                            root.after(900, lambda: try_button.destroy())
+
+                            # Calling the function to create the Rules Panel for the second time
+                            root.after(1300, lambda: quizInitiator(
+                                topicName, topicTable, quizNumber))
+
+                    # >>
+
+                    # ------------------------------------- TryMore-Button -StyleStarts----------------------------------------------------
+
+                    # Creating a TryMore-Button to anwser more quiz
+                    # Styling TryMore-Button
+                    try_button_style = Style()
+                    try_button_style.theme_use("default")
+                    try_button_style.configure("W.TButton", font=("Playball", 12, "bold", "italic"),
+                                               foreground="#F0EFF4", background="#BF09D5", borderwidth=2, width=10, focuscolor='none')
+                    # Mouse Hovering style
+                    try_button_style.map('W.TButton', foreground=[(
+                        'active', '!disabled', '#F0EFF4')], background=[('active', '#DB12AF')])
+
+                    # TryMore-Button
+                    global try_button
+                    try_button = Button(root, text="Try more..",
+                                        style="W.TButton", command=lambda: quizInitiator(topicName, topicTable, quizNumber))
+                    try_button.place(
+                        relx=0.5, rely=0.7, anchor=CENTER)
+
+                    # -------------------------------------------------------------------------------------------- TryMore-Button -StyleEnds----
+
+                # >>
+
                 # Function which creates the Quiz from the data collected from the database, also with a CountDownTimer
-                def quizQuestion(topicTable, quizNumber):
+                def quizQuestion(topicName, topicTable, quizNumber):
 
                     # ------------------------------------- Selected & Correct Option -StyleStarts----------------------------------------------------
 
@@ -547,6 +678,10 @@ def main():
 
                     # Creating a cursor
                     co = quizzkur_DB.cursor()
+
+                    # Querying the specified table in the database and collecting the total Quiz-number
+                    co.execute("SELECT * FROM %s" % (topicTable))
+                    totalquiz = len(co.fetchall())
 
                     # Querying the specified table in the database and collecting the quiz which matchs the Quiz-number
                     co.execute(
@@ -684,8 +819,8 @@ def main():
                     root.after(17400, ques_Opt4.destroy)
                     root.after(17500, label.destroy)
 
-                    # Checking if all the Quiz are complete
-                    if (quizNumber >= 10):
+                    # Checking if all the 10 Quiz are complete
+                    if (quizNumber % 10 == 0):
 
                         # Calling the function to update the Total score to database and mean time displaying it to the Guest
                         root.after(18000, lambda: scoreCard())
@@ -696,13 +831,20 @@ def main():
                         # Calling the function to create exit and leaderboard button
                         root.after(19500, lambda: creatingExit())
 
+                        # Checking ig the Quiz reaches the max-limit
+                        if (quizNumber != totalquiz):
+
+                            # Calling the function to create a TryMore-Button
+                            root.after(20200, lambda: createTryMore(
+                                topicName, topicTable, quizNumber))
+
                     else:
                         # Increasing the question number
                         quizNumber += 1
 
                         # Calling the function to create next Quiz
                         root.after(18000, lambda: quizQuestion(
-                            topicTable, quizNumber))
+                            topicName, topicTable, quizNumber))
 
                     # -------------------------------------------------------------------------------------------- Quiz-Template -StyleEnds----
 
@@ -731,7 +873,7 @@ def main():
                     # >>
 
                     # Function which is triggered by the Rules Panel Quiz Start-Button to initialize another function to start Quiz
-                    def quizInitializer(topicTable):
+                    def quizInitializer(topicName, topicTable):
 
                         # Disabling the Quiz Start-Button after clicked, for preventing the function to be called twice
                         start_button2.configure(state=DISABLED)
@@ -743,7 +885,8 @@ def main():
                         root.after(500, back3_button.destroy)
 
                         # Calling the function to create Quiz
-                        root.after(800, lambda: quizQuestion(topicTable, 1))
+                        root.after(800, lambda: quizQuestion(
+                            topicName, topicTable, 1))
 
                     # >>
 
@@ -753,8 +896,8 @@ def main():
                     start_button2_style = Style()
                     start_button2_style.configure("B.TButton", font=("Playball", 17, "bold", "italic"),
                                                   foreground="#0A0908", background="#F6F67C", borderwidth=2, width=8, height=2)
-                    start_button2 = Button(
-                        root, text="Start", style="B.TButton")
+                    start_button2 = Button(root, text="Start",
+                                           style="B.TButton")
                     start_button2.place(relx=0.5, rely=0.75, anchor=CENTER)
 
                     # Assigning Quizzes according to the button clicked
@@ -771,7 +914,7 @@ def main():
 
                         # Assigning a function to the Quiz Start-Button with database as parameter to get the relavent Quiz
                         start_button2.configure(
-                            command=lambda: quizInitializer("generalquestions"))
+                            command=lambda: quizInitializer("General Knowledge", "generalquestions"))
 
                     if (clicked_topic_button["text"] == "Technology"):
 
@@ -786,7 +929,7 @@ def main():
 
                         # Assigning a function to the Quiz Start-Button with database as parameter to get the relavent Quiz
                         start_button2.configure(
-                            command=lambda: quizInitializer("techquestions"))
+                            command=lambda: quizInitializer("General Knowledge", "techquestions"))
 
                     if (clicked_topic_button["text"] == "Science"):
 
@@ -801,12 +944,12 @@ def main():
 
                         # Assigning a function to the Quiz Start-Button with database as parameter to get the relavent Quiz
                         start_button2.configure(
-                            command=lambda: quizInitializer("sciencequestions"))
+                            command=lambda: quizInitializer("General Knowledge", "sciencequestions"))
 
                     # Changing the text in the Topic-Select Panel label instead of destroying it
                     root.after(800, label2.configure(text="Rules"))
 
-                    # Displaying the rules related to Topic-1's Quiz
+                    # Displaying the rules for the Quiz
                     rules = Message(root, text="    1. Each question has a time limit of 15 seconds.\r\n    2. Once the option is selected it can't be changed.\r\n    3. Final Score is displayed at the end.\r\n    4. The following questions are based on '%s'." % clicked_topic_button["text"], font=("Dodge", 12),
                                     foreground="#D1E3DD", background="#1E0905", width=450)
                     rules.place(relx=0.5, rely=0.42, anchor=CENTER)
@@ -822,7 +965,7 @@ def main():
                                           style="E.TButton", command=lambda: back3())
                     back3_button.place(relx=0.15, rely=0.9, anchor=CENTER)
 
-                    # -------------------------------------------------------------------------------------------- Rules Panel for Topic-1 -StyleEnds----
+                    # -------------------------------------------------------------------------------------------- Rules Panel for Quiz -StyleEnds----
 
                 # >>
 
@@ -857,7 +1000,7 @@ def main():
                                 foreground="#F5F749", background="#1E0905")
                 label31.place(relx=0.995, rely=0.094, anchor=E)
 
-                # Styling Topic-Selection Panel's Buttons
+                # Styling Topic-Select Panel's Buttons
                 topic_button_style = Style()
                 topic_button_style.theme_use("default")
                 topic_button_style.configure("W.TButton", font=("Playball", 15, "bold", "italic"),
@@ -866,7 +1009,7 @@ def main():
                 topic_button_style.map("W.TButton", foreground=[(
                     "active", "!disabled", "#0A0908")], background=[("active", "#F5F749")])
 
-                # Creating Topic-Buttons for Topic-Selection Panel
+                # Creating Topic-Buttons for Topic-Select Panel
                 topic_button1 = Button(root, text="General Knowledge",
                                        style="W.TButton", command=lambda: quizRules(topic_button1))
                 topic_button1.place(relx=0.5, rely=0.3, anchor=CENTER)
