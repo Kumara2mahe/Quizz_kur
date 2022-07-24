@@ -92,6 +92,96 @@
             "option3": "bioscope",
             "option4": "All of the above",
             "correct": "telescope"
+        },
+        "quiz11": {
+            "id": "11",
+            "question": "Kiran Bedi received Magsaysay Award for government service in",
+            "option1": "1992",
+            "option2": "1993",
+            "option3": "1994",
+            "option4": "1995",
+            "correct": "1994"
+        },
+        "quiz12": {
+            "id": "12",
+            "question": "Logarithm tables were invented by",
+            "option1": "John Napier",
+            "option2": "John Doe",
+            "option3": "John Harrison",
+            "option4": "John Douglas",
+            "correct": "John Napier"
+        },
+        "quiz13": {
+            "id": "13",
+            "question": "With which sport is the Jules Rimet trophy associated?",
+            "option1": "Basketball",
+            "option2": "Football",
+            "option3": "Hockey",
+            "option4": "Golf",
+            "correct": "Football"
+        },
+        "quiz14": {
+            "id": "14",
+            "question": "Joule is the unit of",
+            "option1": "temperature",
+            "option2": "pressure",
+            "option3": "energy",
+            "option4": "heat",
+            "correct": "energy"
+        },
+        "quiz15": {
+            "id": "15",
+            "question": "Kemal Ataturk was the",
+            "option1": "first President of Independent Kenya",
+            "option2": "founder of modern Turkey",
+            "option3": "revolutionary leader of Soviet Union",
+            "option4": "None of the above",
+            "correct": "founder of modern Turkey"
+        },
+        "quiz16": {
+            "id": "16",
+            "question": "In 1960 Olympics, which place does Milkha Singh Stood in Athletics ?",
+            "option1": "fourth in 400m final",
+            "option2": "second in 800m final",
+            "option3": "eighth in 400m final",
+            "option4": "seventh in 800m final",
+            "correct": "fourth in 400m final"
+        },
+        "quiz17": {
+            "id": "17",
+            "question": "Kathakali, Mohiniatam and Ottamthullal are the famous dances of",
+            "option1": "Kerala",
+            "option2": "Karnataka",
+            "option3": "Orissa",
+            "option4": "Tamil Nadu",
+            "correct": "Kerala"
+        },
+        "quiz18": {
+            "id": "18",
+            "question": "Jaspal Rana is associated with which of the following games?",
+            "option1": "Swimming",
+            "option2": "Archery",
+            "option3": "Shooting",
+            "option4": "Weightlifting",
+            "correct": "Shooting"
+        },
+        "quiz19": {
+            "id": "19",
+            "question": "Lala Lajpat Rai is also known as",
+            "option1": "Sher-e-Punjab",
+            "option2": "Punjab Kesari",
+            "option3": "All the above",
+            "option4": "None of the above",
+            "correct": "All the above"
+        },
+        "quiz20": {
+            "id": "20",
+            "question": "Modern football is said to have evolved from",
+            "option1": "England",
+            "option2": "India",
+            "option3": "France",
+            "option4": "Spain",
+            "correct": "England"
         }
     },
     "topic2": {
@@ -187,6 +277,96 @@
             "option3": "Movie file",
             "option4": "Image file",
             "correct": "Audio file"
+        },
+        "quiz11": {
+            "id": "11",
+            "question": "To select text by shading as you drag the mouse arrow over the text is known as",
+            "option1": "Clip art",
+            "option2": "To highlight",
+            "option3": "To fetch",
+            "option4": "To decode",
+            "correct": "To highlight"
+        },
+        "quiz12": {
+            "id": "12",
+            "question": "What do you call a computer on a network that requests files from another computer?",
+            "option1": "A client",
+            "option2": "A host",
+            "option3": "A router",
+            "option4": "A web server",
+            "correct": "A client"
+        },
+        "quiz13": {
+            "id": "13",
+            "question": "RAM stands for",
+            "option1": "Random Access Memory",
+            "option2": "Really Annoying Machine",
+            "option3": "Read A Manual",
+            "option4": "Real Absolute Memory",
+            "correct": "Random Access Memory"
+        },
+        "quiz14": {
+            "id": "14",
+            "question": "How can you catch a computer virus?",
+            "option1": "Sending e-mail messages",
+            "option2": "Using a laptop longtime",
+            "option3": "Opening e-mail attachments",
+            "option4": "Shopping online",
+            "correct": "Opening e-mail attachments"
+        },
+        "quiz15": {
+            "id": "15",
+            "question": "A coating of dust on a computer's main circuit boards has this probable consequence",
+            "option1": "Overheating",
+            "option2": "Short circuits",
+            "option3": "Slower hard disk",
+            "option4": "None",
+            "correct": "Overheating"
+        },
+        "quiz16": {
+            "id": "16",
+            "question": "Which is not an internet protocol?",
+            "option1": "HTTP",
+            "option2": "FTP",
+            "option3": "STP",
+            "option4": "IP",
+            "correct": "STP"
+        },
+        "quiz17": {
+            "id": "17",
+            "question": "Which of the following is not a valid domain name?",
+            "option1": "www.yahoo.com",
+            "option2": "www.yahoo.co.uk",
+            "option3": "www.fr.yahoo",
+            "option4": "www.yahoo.fr",
+            "correct": "www.fr.yahoo"
+        },
+        "quiz18": {
+            "id": "18",
+            "question": "What are the three main search expressions, or operators, recognized by Boolean logic?",
+            "option1": "FROM, TO, WHOM",
+            "option2": "AND, OR, NOT",
+            "option3": "SEARCH, KEYWORD, TEXT",
+            "option4": "AND, OR, BUT",
+            "correct": "AND, OR, NOT"
+        },
+        "quiz19": {
+            "id": "19",
+            "question": "Which of the following is not a programming language?",
+            "option1": "Basic",
+            "option2": "Java",
+            "option3": "Turing",
+            "option4": "C#",
+            "correct": "Turing"
+        },
+        "quiz20": {
+            "id": "20",
+            "question": "Another word for the CPU is",
+            "option1": "Micro chip",
+            "option2": "Microprocessor",
+            "option3": "Central Processing Unit",
+            "option4": "Decode",
+            "correct": "Microprocessor"
         }
     },
     "topic3": {
@@ -282,6 +462,96 @@
             "option3": "Carbon dioxide",
             "option4": "Hydrogen",
             "correct": "Hydrogen"
+        },
+        "quiz11": {
+            "id": "11",
+            "question": "What is the unit for measuring the amplitude of a sound?",
+            "option1": "Decibel",
+            "option2": "Coulomb",
+            "option3": "Hum",
+            "option4": "Cycles",
+            "correct": "Decibel"
+        },
+        "quiz12": {
+            "id": "12",
+            "question": "Reading of a barometer going down is an indication of",
+            "option1": "snow",
+            "option2": "storm",
+            "option3": "intense heat",
+            "option4": "rainfall",
+            "correct": "rainfall"
+        },
+        "quiz13": {
+            "id": "13",
+            "question": "Light year is a measurement of",
+            "option1": "speed of aeroplanes",
+            "option2": "speed of light",
+            "option3": "stellar distances",
+            "option4": "speed of rockets",
+            "correct": "stellar distances"
+        },
+        "quiz14": {
+            "id": "14",
+            "question": "Very small time intervals are accurately measure by",
+            "option1": "White dwarfs",
+            "option2": "Quartz clocks",
+            "option3": "Atomic clocks",
+            "option4": "Pulsars",
+            "correct": "Atomic clocks"
+        },
+        "quiz15": {
+            "id": "15",
+            "question": "One kilometre is equal to how many miles?",
+            "option1": "0.84 miles",
+            "option2": "0.5 miles",
+            "option3": "1.6 miles",
+            "option4": "0.62 miles",
+            "correct": "0.62 miles"
+        },
+        "quiz16": {
+            "id": "16",
+            "question": "One horse power is equal to",
+            "option1": "746 watts",
+            "option2": "748 watts",
+            "option3": "756 watts",
+            "option4": "736 watts",
+            "correct": "746 watts"
+        },
+        "quiz17": {
+            "id": "17",
+            "question": "'Bar' is the unit of",
+            "option1": "temperature",
+            "option2": "heat",
+            "option3": "atmospheric pressure",
+            "option4": "current",
+            "correct": "atmospheric pressure"
+        },
+        "quiz18": {
+            "id": "18",
+            "question": "Electric current is measure by",
+            "option1": "commutator",
+            "option2": "wattmeter",
+            "option3": "ammeter",
+            "option4": "voltmeter",
+            "correct": "ammeter"
+        },
+        "quiz19": {
+            "id": "19",
+            "question": "A chronometer measures",
+            "option1": "colour contrast",
+            "option2": "sound waves",
+            "option3": "time",
+            "option4": "water waves",
+            "correct": "time"
+        },
+        "quiz20": {
+            "id": "20",
+            "question": "Knot is a unit of speed of which of the following?",
+            "option1": "Aeroplane",
+            "option2": "Light waves",
+            "option3": "Ship",
+            "option4": "Sound waves",
+            "correct": "Ship"
         }
     }
 }
