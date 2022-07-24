@@ -13,7 +13,7 @@ import os
 def settingUp():
 
     # Function for creating tables into the database and also inserting predefined data to it
-    def initializingTable(tablename, topic):
+    def initializingTable(tablename, topic, totalQuiz):
 
         # Getting the table if exists
         co.execute(
@@ -33,7 +33,7 @@ def settingUp():
                         correct TEXT
                         )""" % tablename)
 
-            for i in range(1, 11):
+            for i in range(1, totalQuiz + 1):
 
                 # Inserting data into the table
                 co.execute("INSERT INTO %s VALUES (:question_no, :question_entry, :option1_entry, :option2_entry, :option3_entry, :option4_entry, :correct_entry)" % tablename,
@@ -60,6 +60,9 @@ def settingUp():
         with open(path_to_json, "r") as file:
             questions = json.load(file)
 
+            # Getting the total quiz count
+            quizCount = len(questions["topic1"].keys()) - 3
+
             # Closing the file after parsing
             file.close()
 
@@ -70,13 +73,13 @@ def settingUp():
         co = quizdata.cursor()
 
         # Calling the function to setting up the quizzes for Topic-1
-        initializingTable("generalquestions", "topic1")
+        initializingTable("generalquestions", "topic1", quizCount)
 
         # Calling the function to setting up the quizzes for Topic-2
-        initializingTable("techquestions", "topic2")
+        initializingTable("techquestions", "topic2", quizCount)
 
         # Calling the function to setting up the quizzes for Topic-3
-        initializingTable("sciencequestions", "topic3")
+        initializingTable("sciencequestions", "topic3", quizCount)
 
         # Committing the changes to the database
         quizdata.commit()
@@ -89,6 +92,3 @@ def settingUp():
     else:
         message = "ERROR: \"data.json\" doesn't exists in the current directory"
         return message
-
-
-# settingUp()
