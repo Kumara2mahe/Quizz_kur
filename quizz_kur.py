@@ -393,7 +393,7 @@ def main():
                 # >>
 
                 # Function for displaying the GuestName centered above the score
-                def scoreCard():
+                def scoreCard(quizNumber):
 
                     # Creating a new label to show the page Title
                     global scoreboard
@@ -412,18 +412,30 @@ def main():
                     # Creating a cursor
                     co = quizdata.cursor()
 
-                    # Creating a 'leaderboard' table if not exists to store the Guestname and score
-                    co.execute("""CREATE TABLE IF NOT EXISTS leaderboard (
-                                playername TEXT,
-                                score INTEGER
-                                )""")
+                    # Checking if the Leaderboard updated for the first time or not
+                    if (quizNumber == 10):
 
-                    # Updating the leaderboard with the Guest's name and total score
-                    co.execute("INSERT INTO leaderboard VALUES (:text3, :point)",
-                               {
-                                   "text3": text3,
-                                   "point": point
-                               })
+                        # Creating a 'leaderboard' table if not exists to store the Guestname and score
+                        co.execute("""CREATE TABLE IF NOT EXISTS leaderboard (
+                                    playername TEXT,
+                                    score INTEGER
+                                    )""")
+
+                        # Updating the leaderboard by creating new Guest's name and total score
+                        co.execute("INSERT INTO leaderboard VALUES (:text3, :point)",
+                                   {
+                                       "text3": text3,
+                                       "point": point
+                                   })
+
+                    else:
+
+                        # Updating the Guest Score in the matching name to the 'leaderboard' table in the Database
+                        co.execute("UPDATE leaderboard SET score = :guest_score WHERE playername = :guest_name",
+                                   {
+                                       "guest_score": point,
+                                       "guest_name": text3
+                                   })
 
                     # Committing the changes to the database
                     quizdata.commit()
@@ -823,7 +835,7 @@ def main():
                     if (quizNumber % 10 == 0):
 
                         # Calling the function to update the Total score to database and mean time displaying it to the Guest
-                        root.after(18000, lambda: scoreCard())
+                        root.after(18000, lambda: scoreCard(quizNumber))
 
                         # Calling the function to display the Total Score
                         root.after(18500, lambda: finalScore())
@@ -831,7 +843,7 @@ def main():
                         # Calling the function to create exit and leaderboard button
                         root.after(19500, lambda: creatingExit())
 
-                        # Checking ig the Quiz reaches the max-limit
+                        # Checking if the Quiz reaches the max-limit
                         if (quizNumber != totalquiz):
 
                             # Calling the function to create a TryMore-Button
