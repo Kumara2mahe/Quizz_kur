@@ -16,6 +16,10 @@ A simple quiz application build in Python by Tkinter. It is basically a multi-ch
 
 - After the 10th question, Player's name and totalscore is added to the database and also shown as a scorecard.
 
+- Also a Try-More button shown under the totalscore to answer more Quiz questions.
+
+- Try-More works as the above format and returns back to scorecard panel and showing the totalscore in addition of previous score with Try-More scores.
+
 <br>
 
 ### App-Preview
@@ -23,6 +27,10 @@ A simple quiz application build in Python by Tkinter. It is basically a multi-ch
 <br>
 
 ![A sample video of showing how quizz_kur app works and look like.](/Images/preview.gif)
+
+<br>
+
+[# Preview of Previous version](https://raw.githubusercontent.com/Kumara2mahe/Quizz_kur/main/Images/old_preview.gif)
 
 <br>
 
@@ -36,6 +44,15 @@ A simple quiz application build in Python by Tkinter. It is basically a multi-ch
 - A Leaderboard option is available at the scorecard panel, which is the panel where the Player's total score is displayed after completing the 10 questions in any of the topic.
 
 - Using the Leaderboard button, the Player can view the top5 scored Player in the first to fifth order.
+
+<br>
+
+> ### Try More
+
+
+- A Try-More button to start the Quiz again with the next set of 10 quizzes collected from the database.
+
+- Quiz rules are same as before and the totalscore displaying is calculated by adding the score got from first 10 set and the second 10 set.
 
 <br>
 
