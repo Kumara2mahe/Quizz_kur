@@ -193,10 +193,10 @@ def main():
 
                     # >>
 
-                    # Function which is operated by the LeaderBoard-Button to collect the top five scores from the database
+                    # Function which is operated by the LeaderBoard-Button in the ScoreCard-Panel to collect the top 5 scores from the database
                     def leaderboard():
 
-                        # Function which creates the leaderboard with only the top5 data collected from the database
+                        # Function which creates the leaderboard with the top 5 data collected from the database
                         def leaderboard_show():
 
                             # Function which is operated by the LeaderBoard's Back-Button
@@ -210,6 +210,7 @@ def main():
                                 leaderboard_name_label.destroy()
                                 leaderboard_score_label.destroy()
                                 leaderboard_text.destroy()
+                                leaderboard_background.destroy()
                                 leaderboard_title.destroy()
 
                                 # Changing back the Back-Button text to Leaderboard-Button and also changing the function assigned to it
@@ -244,11 +245,11 @@ def main():
                             except:
                                 pass
 
-                            # Styling the leaderboard Title label
-                            leaderboard_title_style = Style()
-                            leaderboard_title_style.theme_use("default")
-                            leaderboard_title_style.configure("L.TLabel", font=("Dodge", 15, "bold", "italic"),
-                                                              foreground="#F8FFE5", background="#1E0905", borderwidth=2, width=30, height=10, focuscolor="none")
+                            # Creating a background for the leaderboard panel
+                            leaderboard_background = Canvas(
+                                root, width=400, height=280, background="#1E0905")
+                            leaderboard_background.place(
+                                relx=0.55, rely=0.53, anchor=CENTER)
 
                             # Creating a label to show the leaderboard Title
                             leaderboard_title = Label(
@@ -277,7 +278,7 @@ def main():
 
                             # Creating new label to show the GuestNames
                             leaderboard_name_label = Label(
-                                root, text=show_name, style="G.TLabel")
+                                root, text=show_names, style="G.TLabel")
                             leaderboard_name_label.place(
                                 relx=0.25, rely=0.35, anchor=NW)
 
@@ -289,7 +290,7 @@ def main():
 
                             # Creating new label to show the GuestScores
                             leaderboard_score_label = Label(
-                                root, text=show_score, style="P.TLabel")
+                                root, text=show_scores, style="P.TLabel")
                             leaderboard_score_label.place(
                                 relx=0.88, rely=0.35, anchor=NE)
 
@@ -324,20 +325,20 @@ def main():
                                     score integer
                                     )""")
 
-                        # Querying the database and collects the top five scored names
+                        # Querying the database and collect the top 5 scored users
                         co.execute(
                             "SELECT * FROM leaderboard ORDER BY score DESC")
                         points = co.fetchmany(5)
 
                         # Separating the names from the collected data
-                        show_name = " "
+                        show_names = " "
                         for record in points:
-                            show_name += str(record[0]) + "\r\n "
+                            show_names += str(record[0]) + "\r\n "
 
-                        # Separating the scored from the collected data
-                        show_score = " "
+                        # Separating the scores from the collected data
+                        show_scores = " "
                         for record in points:
-                            show_score += str(record[1]) + "\r\n "
+                            show_scores += str(record[1]) + "\r\n "
 
                         # Committing the changes to the database
                         quizdata.commit()
@@ -356,7 +357,7 @@ def main():
                     global exit_button
                     exit_button = Button(root, text="EXIT",
                                          style="E.TButton", command=lambda: exitingScoreCard())
-                    exit_button.place(relx=0.15, rely=0.9, anchor=CENTER)
+                    exit_button.place(relx=0.1, rely=0.9, anchor=CENTER)
 
                     # Creating a LeaderBoard-Button to view your position in leaderboard
                     score_button_style = Style(root)
@@ -1003,6 +1004,7 @@ def main():
                                foreground="#D1E3DD", background="#1E0905")
                 label2.place(relx=0.5, rely=0.12, anchor=CENTER)
 
+                # Creating a label to show the user type
                 label3 = Label(root, text="Guest", font=("Dodge", 10, "italic"),
                                foreground="#F8FFE5", background="#1E0905")
                 label3.place(relx=0.99, rely=0.01, anchor=NE)
