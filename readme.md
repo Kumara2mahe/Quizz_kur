@@ -58,9 +58,17 @@ A simple quiz application build in Python by Tkinter. It is basically a multi-ch
 
 > ### Admin Interface
 
-<br>
+- In Admin Interface users can create their own admin-account and using that admin-account users can login as admins instead of players.
 
-- This interface is not added yet, it is still in the development stage.
+- This interface has a one additional previlege, which is the Leaderboard option also available inside the Admin Interface.
+
+- Unlike the Leaderboard option in the scorecard panel, Admin Interface's Leaderboard option is to view the top 10 players instead of just 5 players. And also it shows one additional column with name and score of the players, which is the players Id-Number.
+
+- There are two main options available in the Admin Interface for the users who logged in as Admin:
+
+    + First option is to delete the player name and their scores from the Leaderboard using their Id-Number which is shown on the Leaderboard.
+
+    + Second option is to update the Quiz's data (which is the question and options related to a particular quiz) in the database for every topics available in the Guest Interface.
 
 <br>
 
